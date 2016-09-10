@@ -39,34 +39,22 @@ chart.append('g')
 		 .attr('transform', `translate(${barWidth}, ${barWidth})`)
  		 .call(yAxis);
 
-const dataJ = chart.selectAll('.data-j')
-									 .data(data.j)
-									 .enter().append('g')
-								 	 .attr('class', 'data-j')
-									 .attr('transform', (d, i) => `translate(${ x(i + 1) + .15 * barWidth}, 0)`);
+Object.keys(data).forEach((key, index) => {
+	const bars = chart.selectAll(`.data-${key}`)
+		.data(data[key])
+	  .enter().append('g')
+		  .attr('class', `data-${key}`)
+		  .attr('transform', (d, i) => index ? `translate(${ x(i + 1) + .85 * barWidth}, 0)` :
+																					 `translate(${ x(i + 1) + .15 * barWidth}, 0)`) ;
+																					 // This works because 0 is falsy
 
-dataJ.append('rect')
-		 .attr('y', d => y(d) + barWidth)
-		 .attr('height', d => h - y(d))
-		 .attr('width', barWidth);
+	bars.append('rect')
+			.attr('y', d => y(d) + barWidth)
+			.attr('height', d => h - y(d))
+			.attr('width', barWidth);
 
-dataJ.append('text')
-		 .attr('y', d => y(d) + barWidth * 1.75)
-		 .attr('dx', barWidth / 2)
-	   .text(d => d);
-
-const dataM = chart.selectAll('.data-m')
-									 .data(data.m)
-									 .enter().append('g')
-								 	 .attr('class', 'data-m')
-									 .attr('transform', (d, i) => `translate(${ x(i + 1) + .85 * barWidth}, 0)`);
-
- dataM.append('rect')
- 		 .attr('y', d => y(d) + barWidth)
- 		 .attr('height', d => h - y(d))
- 		 .attr('width', barWidth);
-
- dataM.append('text')
- 		 .attr('y', d => y(d) + barWidth * 1.75)
- 		 .attr('dx', barWidth / 2)
- 	   .text(d => d);
+	bars.append('text')
+			 .attr('y', d => y(d) + barWidth * 1.75)
+			 .attr('dx', barWidth / 2)
+		   .text(d => d);
+});
