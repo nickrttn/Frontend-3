@@ -21,18 +21,20 @@ svg {
 	width: auto;
 }
 
-svg g:nth-of-type(odd) {
+#zandbak g:nth-of-type(odd) {
 	color: crimson;
 }
 
-svg g:nth-of-type(even) {
+#zandbak g:nth-of-type(even) {
 	color: mediumblue;
 }
 
-svg g:nth-of-type(odd) rect:first-of-type {
+#zandbak g:nth-of-type(odd) rect:first-of-type {
 	fill: mediumblue;
 }
 
-svg g:nth-of-type(even) rect:first-of-type {
+#zandbak g:nth-of-type(even) rect:first-of-type {
 	fill: crimson;
 }
+
+#robot {}
