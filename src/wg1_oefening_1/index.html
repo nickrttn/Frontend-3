@@ -8,7 +8,59 @@
 <body>
 	<main>
 		<h1>SVG zandbak</h1>
-		<svg id="zandbak" viewBox="0 0 800 600"></svg>
+
+		<svg preserveAspectRatio="xMidYMid meet" id="zandbak" viewBox="0 0 800 600">
+			<g class="single-circle" fill="currentColor">
+				<rect width="267" height="300" x="0" y="0"></rect>
+				<circle r="25" cx="133.35" cy="150" />
+			</g>
+
+			<g class="horizontal-circles" fill="currentColor">
+				<rect width="267" height="300" x="267" y="0" />
+				<circle r="25" cx="310" cy="150" />
+				<circle r="25" cx="370" cy="150" />
+				<circle r="25" cx="430" cy="150" />
+				<circle r="25" cx="490" cy="150" />
+			</g>
+
+			<g class="vertical-circles" fill="currentColor">
+				<rect width="267" height="300" x="534" y="0" />
+				<circle r="25" cx="668" cy="60" />
+				<circle r="25" cx="668" cy="120" />
+				<circle r="25" cx="668" cy="180" />
+				<circle r="25" cx="668" cy="240" />
+			</g>
+
+			<g class="rectangle" fill="currentColor">
+				<rect width="267" height="300" x="0" y="300" />
+				<rect width="50" height="50" x="108.5" y="425" />
+			</g>
+
+			<g class="diagonal-circles" fill="currentColor">
+				<rect width="267" height="300" x="267" y="300" />
+				<circle r="25" cx="337" cy="379" />
+				<circle r="25" cx="379" cy="426" />
+				<circle r="25" cx="422" cy="474" />
+				<circle r="25" cx="465" cy="522" />
+			</g>
+
+			<g class="circle-of-elements" fill="currentColor">
+				<rect width="267" height="300" x="534" y="300" />
+
+				<circle r="20" cx="667" cy="337" />
+				<circle r="20" cx="775" cy="415" />
+				<circle r="20" cx="734" cy="542" />
+				<circle r="20" cx="601" cy="542" />
+				<circle r="20" cx="560" cy="415" />
+
+				<rect width="40" height="40" x="709" y="353" />
+				<rect width="40" height="40" x="750" y="460" />
+				<rect width="40" height="40" x="647" y="538" />
+				<rect width="40" height="40" x="555" y="460" />
+				<rect width="40" height="40" x="591" y="353" />
+			</g>
+		</svg>
+
 	</main>
 
 	<script src="../d3.min.js"></script>

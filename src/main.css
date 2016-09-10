@@ -1,13 +1,38 @@
 body {
-	background: silver;
-	font-family: 'Helvetica-Neue', Helvetica, Arial, sans-serif;
-	font-weight: 100;
+	background: #cfcfcf;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica-Neue', Helvetica, Arial, sans-serif;
+	font-weight: 200;
+	line-height: 1.6;
+	display: flex;
+	flex-flow: column nowrap;
 }
 
 main {
-	background: white;
+	display: inline-block;
+	background: #fff;
+	margin: 2.5vw auto;
+	padding: 2vw 4vw 3.5vw;
+	width: auto;
+	box-shadow: 0 0.5em 1.5em 0 rgba(0, 0, 0, 0.3);
 }
 
 svg {
+	height: 70vh;
+	width: auto;
+}
 
+svg g:nth-of-type(odd) {
+	color: crimson;
+}
+
+svg g:nth-of-type(even) {
+	color: mediumblue;
+}
+
+svg g:nth-of-type(odd) rect:first-of-type {
+	fill: mediumblue;
+}
+
+svg g:nth-of-type(even) rect:first-of-type {
+	fill: crimson;
 }
