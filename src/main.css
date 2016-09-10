@@ -45,4 +45,27 @@ svg {
 	fill: crimson;
 }
 
-#robot {}
+.bar-chart {
+	font: 1em 'Input Mono', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.bar-chart {
+	shape-rendering: crispEdges;
+}
+
+.bar-chart .data-j {
+	fill: mediumblue;
+	mix-blend-mode: multiply;
+}
+
+.bar-chart .data-m {
+	fill: crimson;
+	mix-blend-mode: multiply;
+}
+
+.bar-chart .data-j text,
+.bar-chart .data-m text {
+	fill: white;
+	font-size: .75em;
+	text-anchor: middle;
+}
