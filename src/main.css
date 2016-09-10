@@ -7,6 +7,14 @@ body {
 	flex-flow: column nowrap;
 }
 
+h1 {
+	margin-bottom: 0;
+}
+
+p {
+	margin-top: 0;
+}
+
 main {
 	display: inline-block;
 	background: #fff;
