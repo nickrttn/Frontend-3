@@ -22,7 +22,7 @@
   "devDependencies": {
     "budo": "^9.0.0",
     "hastscript": "^3.0.1",
-    "rehype": "^2.0.0",
+    "rehype": "^3.0.0",
     "rehype-document": "^1.0.0"
   },
   "scripts": {

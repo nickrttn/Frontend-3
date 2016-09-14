@@ -1,2 +1,11 @@
 .DS_Store
 node_modules/
+src/wg2_playground_bar/*
+src/wg2_playground_pie/*
+src/wg2_playground_line/*
+src/wg2_playground_scatter/*
+!src/wg2_playground_bar/readme.md
+!src/wg2_playground_bar/data.csv
+!src/wg2_playground_pie/readme.md
+!src/wg2_playground_line/readme.md
+!src/wg2_playground_scatter/readme.md
