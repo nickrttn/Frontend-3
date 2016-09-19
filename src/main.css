@@ -53,12 +53,12 @@ svg {
 	shape-rendering: crispEdges;
 }
 
-.bar-chart .data-j {
+.bar-chart .data-geluk {
 	fill: mediumblue;
 	mix-blend-mode: multiply;
 }
 
-.bar-chart .data-m {
+.bar-chart .data-stappen {
 	fill: crimson;
 	mix-blend-mode: multiply;
 }
@@ -68,4 +68,12 @@ svg {
 	fill: white;
 	font-size: .75em;
 	text-anchor: middle;
+}
+
+.bar-chart .x-axis .tick text {
+	transform: translateX(3em);
+}
+
+.bar-chart .x-axis .tick:last-of-type {
+	display: none;
 }
