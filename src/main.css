@@ -63,17 +63,17 @@ svg {
 	mix-blend-mode: multiply;
 }
 
-.bar-chart .data-j text,
-.bar-chart .data-m text {
+/*.bar-chart .data-geluk text,
+.bar-chart .data-stappen text {
 	fill: white;
 	font-size: .75em;
 	text-anchor: middle;
-}
+}*/
 
-.bar-chart .x-axis .tick text {
+/*.bar-chart .x-axis .tick text {
 	transform: translateX(3em);
 }
 
 .bar-chart .x-axis .tick:last-of-type {
 	display: none;
-}
+}*/

@@ -1,15 +1,12 @@
-const margin = {
-	top: 48,
-	right: 48,
-	bottom: 48,
-	left: 48
-};
+/* global document, d3 */
+/*eslint no-confusing-arrow: ["error", {allowParens: true}]*/
+const defaultMargin = 48;
 
 // DOM stuff
 const chartWidth = document.querySelector('.bar-chart').clientWidth;
 const chartHeight = document.querySelector('.bar-chart').clientHeight;
-const w = chartWidth - margin.left * 2 - margin.right * 2;
-const h = chartHeight - margin.top * 2 - margin.bottom * 2;
+const w = chartWidth - (defaultMargin * 2) - (defaultMargin * 2);
+const h = chartHeight - (defaultMargin * 2) - (defaultMargin * 2);
 
 // D3.js selectors
 const chart = d3.select('.bar-chart');
@@ -20,70 +17,71 @@ const q = d3.queue();
 q.defer(d3.json, 'mood.json');
 q.defer(d3.json, 'steps.json');
 q.await((error, mood, steps) => {
-	const moodFiltered = mood.filter(obj => { if (obj.value) return obj });
-	const stepsFiltered = mood.filter(obj => { if (obj.value) return obj });
-});
+  // Filter all the objects that have null for a value
+  const moodFiltered = mood.filter((obj) => { if (obj.value) return obj; });
+  const stepsFiltered = steps.filter((obj) => { if (obj.value) return obj; });
 
-d3.json('data.json', (data) => {
-	// Create real date objects from simple date strings
-	const dateFormat = d3.timeFormat('%a');
-	const datums = data.datums.map(date => new Date(date));
+  // Create real date objects from simple date strings
+  const dateFormat = d3.timeFormat('%a %e');
+  const dates = moodFiltered.map(obj => new Date(obj.date));
 
-	// Coerce geluk and stappen to numbers just to be sure
-	const geluk = data.geluk.map(geluk => +geluk);
-	const stappen = data.stappen.map(stappen => +stappen);
+  // Coerce geluk and stappen to numbers just to be sure
+  const geluk = moodFiltered.map(obj => +obj.value);
+  const stappen = stepsFiltered.map(obj => +obj.value);
 
-	// And normalize it back together
-	const coercedData = { geluk, stappen };
+  // And normalize it back together
+  const coercedData = { geluk, stappen };
 
-	// Set up bar styles
-	const barWidth = chartWidth / (data.datums.length * 4);
+  // Set up bar styles
+  const barWidth = chartWidth / (dates.length * 4);
 
-	// Create axis' functions and orientations
-	const x  = d3.scaleTime().domain([d3.min(datums), d3.max(datums)]).range([0, w]);
-	const y1 = d3.scaleLinear().domain([0, d3.max(geluk)]).range([h, 0]);
-	const y2 = d3.scaleLinear().domain([0, d3.max(stappen)]).range([h, 0]);
+  // Create axis' functions and orientations
+  const x = d3.scaleTime().domain([d3.min(dates), d3.max(dates)]).range([0, w]);
+  const y1 = d3.scaleLinear().domain([0, d3.max(geluk)]).range([h, 0]);
+  const y2 = d3.scaleLinear().domain([0, d3.max(stappen)]).range([h, 0]);
 
-	const xAxis  = d3.axisBottom(x).tickFormat(dateFormat);
-	const y1Axis = d3.axisLeft(y1).ticks(5);
-	const y2Axis = d3.axisRight(y2).ticks(5);
+  const xAxis = d3.axisBottom(x).tickFormat(dateFormat);
+  const y1Axis = d3.axisLeft(y1).ticks(5);
+  const y2Axis = d3.axisRight(y2).ticks(5);
 
-	// Add axis' to the SVG
-	chart.append('g')
-			 .attr('class', 'x-axis')
-			 .attr('transform', `translate(${barWidth}, ${h + barWidth})`)
-			 .call(xAxis);
+  // Add axis' to the SVG
+  chart.append('g')
+       .attr('class', 'x-axis')
+       .attr('transform', `translate(${barWidth}, ${h + barWidth})`)
+       .call(xAxis)
+       .selectAll('.x-axis text')
+       .attr('transform', `translate(${barWidth/2}, 0)`);
 
-	chart.append('g')
-			 .attr('class', 'y1-axis')
-			 .attr('transform', `translate(${barWidth}, ${barWidth})`)
-			 .call(y1Axis);
+  chart.append('g')
+       .attr('class', 'y1-axis')
+       .attr('transform', `translate(${barWidth}, ${barWidth})`)
+       .call(y1Axis);
 
-	chart.append('g')
-			 .attr('class', 'y2-axis')
-			 .attr('transform', `translate(${w + barWidth}, ${barWidth})`)
-			 .call(y2Axis);
+  chart.append('g')
+       .attr('class', 'y2-axis')
+       .attr('transform', `translate(${w + defaultMargin}, ${barWidth})`)
+       .call(y2Axis);
 
-	// Draw the actual bars and labels
-	Object.keys(coercedData).forEach((key, index) => {
-		const bars = chart.selectAll(`.data-${key}`)
-			.data(coercedData[key])
-		  .enter().append('g')
-			  .attr('class', `data-${key}`)
-			  .attr('transform', (d, i) => index ? `translate(${ x(datums[i]) + barWidth * 1.85 }, 0)` :
-																						 `translate(${ x(datums[i]) + barWidth * 2.65 }, 0)`) ;
-																						 // This works because 0 is falsy
+  // Draw the actual bars and labels
+  Object.keys(coercedData).forEach((key, index) => {
+    const bars = chart.selectAll(`.data-${key}`)
+      .data(coercedData[key])
+      .enter().append('g')
+        .attr('class', `data-${key}`)
+        .attr('transform', (d, i) => (index ? `translate(${x(dates[i]) + barWidth}, 0)` :
+                                                     `translate(${x(dates[i]) + (barWidth * 1.75)}, 0)`));
+                                             // This works because 0 is falsy
 
-		bars.append('rect')
-				.attr('y', d => key === 'geluk' ? y1(d) + barWidth : y2(d) + barWidth)
-				.attr('height', d => key === 'geluk' ? h - y1(d) : h - y2(d))
-				.attr('width', barWidth);
+    bars.append('rect')
+        .attr('y', d => (key === 'geluk' ? y1(d) + barWidth : y2(d) + barWidth))
+        .attr('height', d => (key === 'geluk' ? h - y1(d) : h - y2(d)))
+        .attr('width', barWidth);
 
-		chart.append('text')
-		 .attr('class', `${key}-label`)
-		 .attr('transform', () => key === 'geluk' ? `translate(0, ${barWidth/2})` : `translate(${w}, ${barWidth/2})`)
-		 .attr('fill', () => key === 'geluk' ? 'mediumblue' : 'crimson')
-		 .text(key)
-		 .attr('font-size', '9');
-	});
+    chart.append('text')
+     .attr('class', `${key}-label`)
+     .attr('transform', () => (key === 'geluk' ? `translate(0, ${barWidth/2})` : `translate(${w}, ${barWidth/2})`))
+     .attr('fill', () => (key === 'geluk' ? 'mediumblue' : 'crimson'))
+     .text(key)
+     .attr('font-size', '9');
+  });
 });
