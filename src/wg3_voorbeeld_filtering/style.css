@@ -1,0 +1,31 @@
+.axis path {
+	stroke: black;
+	stroke-width: 1;
+	fill: transparent;
+}
+.Hoger-beroepsonderwijs.Bachelor {
+	fill: darkblue;
+}
+.Hoger-beroepsonderwijs.Vervolgopleidingen {
+	fill: blue;
+}
+.Hoger-beroepsonderwijs.Doctoraal {
+	fill: tomato;
+}
+
+.Wetenschappelijk-onderwijs.Bachelor {
+	fill: darkred;
+}
+.Wetenschappelijk-onderwijs.Vervolgopleidingen {
+	fill: red;
+}
+.Wetenschappelijk-onderwijs.Doctoraal {
+	fill: goldenrod;
+}
+.Wetenschappelijk-onderwijs.Wo-master {
+	fill: red;
+}
+
+.title {
+	font-size: 1.8em;
+}

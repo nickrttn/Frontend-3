@@ -1,0 +1,41 @@
+article {
+  border-left: solid green;
+  margin: .5em;
+}
+
+p {
+  border-style: dotted;
+  margin: 1em;
+}
+
+.chart{
+	width:1000;
+	height: 600;
+}
+
+.chart rect {
+  fill: steelblue;
+}
+/* Let op, color werkt hier niet want svg text */
+.chart .barLabels{
+	fill: white;
+	font: 10px sans-serif;
+	text-anchor: middle;
+}
+
+.axis text {
+  font: 10px sans-serif;
+	color: black;
+  font-weight: bold;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.axis .tick line {
+  display:none;
+}
+
