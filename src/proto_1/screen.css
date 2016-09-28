@@ -1,0 +1,59 @@
+body {
+  font-family: 'Input Sans Condensed', sans-serif;
+  font-variant: common-ligatures;
+}
+
+main {
+  display: block;
+  margin: 0 auto;
+  max-width: 80vw;
+}
+
+h1, h2, h3, h4, {
+  max-width: 35em;
+  margin-bottom: .5em;
+}
+
+p {
+  max-width: 35em;
+  margin-bottom: 1.5em;
+}
+
+/*svg {
+  max-width: 80%;
+  height: auto;
+}*/
+
+.label {
+  font-size: 1em;
+  font-weight: 500;
+  /*text-transform: uppercase;*/
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25em;
+}
+
+.whole-day text {
+  font-size: 2em;
+  fill: white;
+  font-weight: 600;
+}
+
+.mood-5 {
+  fill: #00B50D;
+}
+
+.mood-4 {
+  fill: #68DB36;
+}
+
+.mood-3 {
+  fill: #B1D020;
+}
+
+.mood-2 {
+  fill: #DF953E;
+}
+
+.mood-1 {
+  fill: #DF3E3E;
+}

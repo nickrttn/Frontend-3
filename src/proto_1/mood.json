@@ -1,282 +1,306 @@
 [
     {
-        "value": 1129, 
+        "value": null,
+        "date": "2016-09-25"
+    },
+    {
+        "value": 5,
+        "date": "2016-09-24"
+    },
+    {
+        "value": 4,
+        "date": "2016-09-23"
+    },
+    {
+        "value": 3,
+        "date": "2016-09-22"
+    },
+    {
+        "value": 3,
+        "date": "2016-09-21"
+    },
+    {
+        "value": 4,
+        "date": "2016-09-20"
+    },
+    {
+        "value": 4,
         "date": "2016-09-19"
-    }, 
+    },
     {
-        "value": 9010, 
+        "value": 4,
         "date": "2016-09-18"
-    }, 
+    },
     {
-        "value": 12466, 
+        "value": 2,
         "date": "2016-09-17"
-    }, 
+    },
     {
-        "value": 8293, 
+        "value": 3,
         "date": "2016-09-16"
-    }, 
+    },
     {
-        "value": 2858, 
+        "value": 3,
         "date": "2016-09-15"
-    }, 
+    },
     {
-        "value": 6745, 
+        "value": 3,
         "date": "2016-09-14"
-    }, 
+    },
     {
-        "value": 4620, 
+        "value": 4,
         "date": "2016-09-13"
-    }, 
+    },
     {
-        "value": 3390, 
+        "value": 3,
         "date": "2016-09-12"
-    }, 
+    },
     {
-        "value": 8266, 
+        "value": 5,
         "date": "2016-09-11"
-    }, 
+    },
     {
-        "value": 442, 
+        "value": 5,
         "date": "2016-09-10"
-    }, 
+    },
     {
-        "value": null, 
+        "value": 4,
         "date": "2016-09-09"
-    }, 
+    },
     {
-        "value": null, 
+        "value": 4,
         "date": "2016-09-08"
-    }, 
+    },
     {
-        "value": null, 
+        "value": 4,
         "date": "2016-09-07"
-    }, 
+    },
     {
-        "value": null, 
+        "value": 4,
         "date": "2016-09-06"
-    }, 
+    },
     {
-        "value": null, 
+        "value": 5,
         "date": "2016-09-05"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-09-04"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-09-03"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-09-02"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-09-01"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-31"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-30"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-29"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-28"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-27"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-26"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-25"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-24"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-23"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-22"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-21"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-20"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-19"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-18"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-17"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-16"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-15"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-14"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-13"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-12"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-11"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-10"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-09"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-08"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-07"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-06"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-05"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-04"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-03"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-02"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-08-01"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-31"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-30"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-29"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-28"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-27"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-26"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-25"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-24"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-23"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-22"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-21"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-20"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-19"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-18"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-17"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-16"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-15"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-14"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-13"
-    }, 
+    },
     {
-        "value": null, 
+        "value": null,
         "date": "2016-07-12"
     }
 ]

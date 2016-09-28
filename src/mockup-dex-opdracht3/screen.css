@@ -1,7 +1,23 @@
-.bubbles circle {
-  fill: lightgrey;
+main {
+  max-width: 80vw;
 }
 
-.bubbles text {
-  fill: black;
+.mood-5 {
+  fill: #00B50D;
+}
+
+.mood-4 {
+  fill: #68DB36;
+}
+
+.mood-3 {
+  fill: #B1D020;
+}
+
+.mood-2 {
+  fill: #DF953E;
+}
+
+.mood-1 {
+  fill: #DF3E3E;
 }
