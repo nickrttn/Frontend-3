@@ -5,8 +5,8 @@ const defaultMargin = 48;
 // DOM stuff
 const chartWidth = document.querySelector('.drawing-area').clientWidth;
 const chartHeight = document.querySelector('.drawing-area').clientHeight;
-const w = chartWidth - (defaultMargin * 2) - (defaultMargin * 2);
-const h = chartHeight - (defaultMargin * 2) - (defaultMargin * 2);
+// const w = chartWidth - (defaultMargin * 2) - (defaultMargin * 2);
+// const h = chartHeight - (defaultMargin * 2) - (defaultMargin * 2);
 
 // D3.js selectors
 const svg = d3.select('.drawing-area');
@@ -51,7 +51,7 @@ q.await((error, mood, kit) => {
   // certain mood occurs in moodProcessed.
   const moodCounted = [];
   moodProcessed.forEach((obj) => {
-    const countIndex = moodCounted.findIndex(countObj => countObj.mood == obj.mood);
+    const countIndex = moodCounted.findIndex(countObj => countObj.mood === obj.mood);
 
     // If we get into this conditional,
     // halt execution of the loop.
@@ -64,8 +64,9 @@ q.await((error, mood, kit) => {
 
     // If we don't get into the conditional,
     // simply add 1 to the relevant count.
-    // Return false to appease eslint.
     moodCounted[countIndex].count += 1;
+
+    // Return false to appease eslint.
     return false;
   });
 
