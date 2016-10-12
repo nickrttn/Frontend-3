@@ -268,6 +268,7 @@ function brushed() {
 
 function daysRender() {
   if (!timeAxisDrawn) drawAxis();
+  if (activities) kitRender();
 
   if (wholeDays) {
     [dataDrawingArea, brushDrawingArea].forEach(group => {
