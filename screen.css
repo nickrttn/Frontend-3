@@ -1,0 +1,225 @@
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+
+:root {
+  --yellow: #FFC80B;
+  --orange: rgb(235, 102, 37);
+  --green: #247033;
+  --gray: #231F20;
+  --blue: #059;
+  --font-stack-headings: 'Helvetica Rounded LT Std', 'Fredoka One', Avenir, 'Avenir Next', sans-serif;
+  --font-stack-body: Avenir, 'Avenir Next', sans-serif;
+}
+
+body {
+  font: 400 1.25em/1.65 var(--font-stack-body);
+  font-feature-settings: 'kern', 'clig';
+  font-variant: common-ligatures;
+  color: #231F20;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-stack-headings);
+}
+
+p {
+  max-width: 35em;
+  margin-bottom: 1.5em;
+}
+
+button {
+  appearance: none;
+  border: 2px solid var(--gray);
+  border-radius: 5px;
+  font-size: 0.8em;
+  font-family: var(--font-stack-body);
+  margin-right: .25em;
+  padding: 0.25em 0.5em;
+  background: var(--green);
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 .25em 0 var(--green);
+}
+
+.activities button {
+  background: var(--blue);
+}
+
+.section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.section__content-wrapper {
+  display: flex;
+  width: 80vw;
+  max-width: 100vw;
+  margin: 5vw 0;
+}
+
+.section__title {
+  text-transform: lowercase;
+  margin-bottom: .25em;
+}
+
+.section__sidebar {
+  flex: 1;
+  order: 1;
+  max-width: 22vw;
+}
+
+.section__main-content {
+  padding-right: 2vw;
+  flex: 1;
+}
+
+.section--introduction {
+  background: var(--blue);
+  color: white;
+  font-size: calc(1em + .5vw);
+}
+
+.section--introduction .section__content-wrapper {
+  flex-flow: column nowrap;
+}
+
+.section--happiness-over-time {
+  background: var(--yellow);
+}
+
+.drawing-area {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.buttons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.domain {
+  opacity: 0;
+}
+
+.tick line{
+  color: var(--gray);
+  stroke-width: 2;
+}
+
+.label {
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: .5em;
+}
+
+.whole-day text {
+  font-size: 2em;
+  fill: white;
+  font-weight: 600;
+}
+
+.mood-5 {
+  fill: var(--green);
+}
+
+.mood-4 {
+  fill: #24B933;
+}
+
+.mood-3 {
+  fill: #BAB821;
+}
+
+.mood-2 {
+  fill: var(--orange);
+}
+
+.mood-1 {
+  fill: #DF3E3E;
+}
+
+.noon {
+  stroke: var(--gray);
+  stroke-dasharray: 4;
+  stroke-width: 2;
+}
+
+.drawing-area__data {
+  overflow: hidden;
+}
+
+.mood-5,
+.mood-4,
+.mood-3,
+.mood-2,
+.mood-1 {
+  stroke: var(--gray);
+  stroke-width: 2;
+}
+
+.brush .mood-5,
+.brush .mood-4,
+.brush .mood-3,
+.brush .mood-2,
+.brush .mood-1 {
+  stroke-width: 1;
+}
+
+.selection {
+  fill: transparent;
+  stroke-width: 2;
+}
+
+.legend {
+  margin-top: 1.5em;
+}
+
+.legend p:not(.label) {
+  margin: 0;
+  margin-bottom: .5em;
+}
+
+.legend ul {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  margin-bottom: .25em;
+}
+
+.legend svg {
+  margin-right: .5em;
+}
+
+.tooltip {
+  background: var(--blue);
+  color: white;
+  padding: 1vw;
+}
+
+.tooltip p {
+  margin: 0;
+}
+
+.tooltip td {
+  padding: 0 .5em;
+  vertical-align: middle;
+}
+
+.tooltip svg {
+  margin-top: 4px;
+}

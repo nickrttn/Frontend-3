@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>kit en ik</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+  <link rel="stylesheet" href="screen.css">
+</head>
+<body>
+
+  <section class="section section--introduction">
+    <div class="section__content-wrapper">
+      <h1 class="section__title">Kit en ik</h1>
+      <p>Kit is mijn zoontje. Hij is bijna anderhalf jaar oud. Samen beleven we avonturen. Die heb ik 6 weken lang bijgehouden. Kit maakt me gelukkig. Hieronder kun je ontdekken hoe gelukkig.</p>
+    </div>
+  </section>
+
+  <section class="section section--happiness-over-time">
+    <div class="section__content-wrapper">
+      <aside class="section__sidebar">
+        <h2 class="section__title">Meetbaar geluk</h2>
+        <p>Hier zie je voor elke dag hoe ik me voelde. De staafjes zijn hele dagen, de cirkels zijn avonturen met Kit.</p>
+        <p class="label">Hieronder kun je kiezen wat je ziet.</p>
+        <div class="buttons">
+          <button id="whole-day">Hele dagen</button>
+          <button id="activities-kit">Avonturen met Kit</button>
+        </div>
+        <div class="legend">
+          <p class="label">Hoe voel ik me hier?</p>
+          <div class="legend__definition">
+            <ul>
+              <li>
+                <svg width="24" height="24">
+                  <rect x="1" y="1" width="20" height="20" class="mood-5"></rect>
+                </svg>
+                <span>Heel goed</span>
+              </li>
+              <li>
+                <svg width="24" height="24">
+                  <rect x="1" y="1" width="20" height="20" class="mood-4"></rect>
+                </svg>
+                <span>Goed</span>
+              </li>
+              <li>
+                <svg width="24" height="24">
+                  <rect x="1" y="1" width="20" height="20" class="mood-3"></rect>
+                </svg>
+                <span>OK</span>
+              </li>
+              <li>
+                <svg width="24" height="24">
+                  <rect x="1" y="1" width="20" height="20" class="mood-2"></rect>
+                </svg>
+                <span>Niet goed</span>
+              </li>
+              <li>
+                <svg width="24" height="24">
+                  <rect x="1" y="1" width="20" height="20" class="mood-1"></rect>
+                </svg>
+                <span>Slecht</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="activities">
+          <p class="label">Meer weten over onze avonturen?</p>
+          <button id="activities">Bekijk onze avonturen</button>
+        </div>
+      </aside>
+
+      <main class="section__main-content">
+        <svg class="drawing-area" width="800" height="600"></svg>
+      </main>
+    </div>
+  </section>
+
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
