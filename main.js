@@ -202,7 +202,7 @@ function createBrush() {
   brushDrawingArea = brushGroup.append('g')
     .attr('class', 'drawing-area__brush');
 
-// Add the xBrush axis to the brush area
+  // Add the xBrush axis to the brush area
   brushGroup.append('g')
     .attr('class', 'axis axis--x axis--brush')
     .attr('transform', `translate(0, ${(h / 12)})`)
@@ -220,6 +220,7 @@ function drawAxis() {
   x = d3.scaleTime().domain(d3.extent(normalizedData, obj => obj.date)).range([0, w]).nice();
   xAxis = d3.axisBottom(x).tickFormat(dateFormat);
 
+  // Create a x-axis for the brush
   xBrush = d3.scaleTime().domain(x.domain()).range([0, w / 2]);
   xAxisBrush = d3.axisBottom(xBrush).tickFormat(dateFormat);
 
@@ -233,7 +234,7 @@ function drawAxis() {
     dataGroup.append('g')
       .attr('class', 'axis axis--x')
       .attr('clip-path', 'url(#drawing-area__clip)')
-      .attr('transform', `translate(${margin.left}, ${(h / 1.5)})`)
+      .attr('transform', `translate(${margin.left}, ${(h / 1.5) + 5})`)
       .call(xAxis);
 
     // Add the y axis to the drawing area
@@ -255,9 +256,6 @@ function brushed() {
   const selection = d3.event.selection;
   x.domain(selection.map(xBrush.invert, xBrush));
 
-  // Set both filters to false
-  wholeDays = false; kitActivities = false;
-
   // Draw new groups into the drawing area
   dataDrawingArea.selectAll('g')
     .attr('transform', d => `translate(${margin.left + x(d.date)}, 0)`);
@@ -267,7 +265,6 @@ function brushed() {
 }
 
 function daysRender() {
-  if (!timeAxisDrawn) drawAxis();
   if (activities) kitRender();
 
   if (wholeDays) {
@@ -311,7 +308,6 @@ function kitRender() {
           .duration(250)
           .attr('cy', d => index === 0 ? y(d.from) : yBrush(d.from));
     });
-
     activities = false;
   } else {
     [dataDrawingArea, brushDrawingArea].forEach((group, index) => {
@@ -338,13 +334,8 @@ function kitRender() {
 }
 
 function activitiesRender() {
-  if (wholeDays) daysRender();
-
   // Remove the midday line
   dataDrawingArea.select('.noon').transition().duration(250).remove();
-
-  // Remove the x axis
-  svg.select('.axis--x').remove();
 
   // Put activities into an array for creating an axis
   const activitiesFiltered = [];
@@ -372,18 +363,36 @@ function activitiesRender() {
   // Add the new y axis to the drawing area
   dataGroup.select('.axis--y').call(yAxis);
 
-  [dataDrawingArea, brushDrawingArea].forEach((group, index) => {
-    group.selectAll('g')
-      .selectAll('circle')
-        .transition()
-        .duration(250)
-        .attr('cy', d => index === 0 ? y(d.activity) + margin.top : yBrush(d.activity));
-  });
+  if (kitActivities) {
+    [dataDrawingArea, brushDrawingArea].forEach((group, index) => {
+      group.selectAll('g')
+        .selectAll('circle')
+          .transition()
+          .duration(250)
+          .attr('cy', d => index === 0 ? y(d.activity) + margin.top : yBrush(d.activity));
+    });
+  } else {
+    [dataDrawingArea, brushDrawingArea].forEach((group, index) => {
+      group.selectAll('g')
+        .selectAll('circle')
+          .data(d => d.activities)
+          .enter().append('circle')
+          .attr('class', d => `mood-${d.mood}`)
+          .attr('r', () => index === 0 ? 6 : 2)
+          .attr('cx', 14)
+          .attr('cy', (h / 1.5) - margin.top)
+          .transition()
+          .duration(250)
+          .attr('cy', d => index === 0 ? y(d.activity) + margin.top : yBrush(d.activity));
+    });
+  }
 
   // Add a handler for mouse-over tooltips
   dataDrawingArea.selectAll('circle')
     .on('mouseover', (d) => addTooltip(d))
     .on('mouseleave', () => d3.selectAll('.tooltip').remove());
+
+  if (wholeDays) daysRender();
 
   // State
   kitActivities = false;
