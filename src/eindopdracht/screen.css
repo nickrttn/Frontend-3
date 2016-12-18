@@ -96,6 +96,22 @@ button:hover {
   background: var(--yellow);
 }
 
+.section--foto {
+  background: var(--orange);
+}
+
+.section--foto .section__content-wrapper {
+  max-width: 30vw;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.section__photo {
+  max-height: 70vh;
+  width: auto;
+  border: 10px solid white;
+}
+
 .drawing-area {
   width: 100%;
   max-width: 100%;
@@ -112,9 +128,14 @@ button:hover {
   opacity: 0;
 }
 
-.tick line{
+.tick line {
   color: var(--gray);
   stroke-width: 2;
+}
+
+.tick text {
+  font-family: var(--font-stack-body);
+  font-size: 1.05em;
 }
 
 .label {
@@ -179,6 +200,10 @@ button:hover {
 .selection {
   fill: transparent;
   stroke-width: 2;
+}
+
+.handle {
+  fill: white;
 }
 
 .legend {
