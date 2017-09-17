@@ -8,14 +8,14 @@
 */
 
 // Utility functions
-const addTimeToDate = (time) => {
+var addTimeToDate = (time) => {
   // Return nothing when no time is given
   if (!time) {
     return false;
   }
 
   // Create a new date object with the date of today
-  const dateWithTime = new Date();
+  var dateWithTime = new Date();
 
   // Set the hours and minutes
   dateWithTime.setHours(time.split(':')[0]);
@@ -25,18 +25,18 @@ const addTimeToDate = (time) => {
 };
 
 // Vanilla DOM selector stuff
-const chartSize = document.querySelector('.drawing-area').getBoundingClientRect();
-const { width: chartWidth, height: chartHeight } = chartSize;
+var chartSize = document.querySelector('.drawing-area').getBoundingClientRect();
+var { width: chartWidth, height: chartHeight } = chartSize;
 
-const kitButton = document.querySelector('#activities-kit');
-const wholeDaysButton = document.querySelector('#whole-day');
-const activitiesButton = document.querySelector('#activities');
+var kitButton = document.querySelector('#activities-kit');
+var wholeDaysButton = document.querySelector('#whole-day');
+var activitiesButton = document.querySelector('#activities');
 
 // D3.js DOM selectors
-const svg = d3.select('.drawing-area');
+var svg = d3.select('.drawing-area');
 
 // I want most margins to be 2.5% of my drawing area
-const margin = {
+var margin = {
   top: chartHeight * 0.025,
   right: chartWidth * 0.025,
   bottom: chartHeight * 0.025,
@@ -44,8 +44,8 @@ const margin = {
 };
 
 // Calculate the bounds of my drawing area
-const w = chartWidth - margin.right - margin.left;
-const h = chartHeight - margin.top - margin.bottom;
+var w = chartWidth - margin.right - margin.left;
+var h = chartHeight - margin.top - margin.bottom;
 
 // Set d3's default locale to nl_NL
 d3.timeFormatDefaultLocale({
@@ -60,27 +60,27 @@ d3.timeFormatDefaultLocale({
 });
 
 // Create date and time formatters
-const dateFormat = d3.timeFormat('%a %e %b');
-const timeFormat = d3.timeFormat('%H:%M');
+var dateFormat = d3.timeFormat('%a %e %b');
+var timeFormat = d3.timeFormat('%H:%M');
 
 // Global variables
-let firstRender = true;
-let dataGroup;
-let brushGroup;
-let dataDrawingArea;
-let brushDrawingArea;
-let timeAxisDrawn;
-let x;
-let xAxis;
-let xAxisBrush;
-let y;
-let yAxis;
-let xBrush;
-let yBrush;
-let normalizedData;
+var firstRender = true;
+var dataGroup;
+var brushGroup;
+var dataDrawingArea;
+var brushDrawingArea;
+var timeAxisDrawn;
+var x;
+var xAxis;
+var xAxisBrush;
+var y;
+var yAxis;
+var xBrush;
+var yBrush;
+var normalizedData;
 
 // Create a D3 queue
-const q = d3.queue();
+var q = d3.queue();
 
 // Add JSON files to the queue
 q.defer(d3.json, 'mood.json');
@@ -95,9 +95,9 @@ wholeDaysButton.addEventListener('click', daysRender, false);
 activitiesButton.addEventListener('click', activitiesRender, false);
 
 // Filter defaults
-let kitActivities = false;
-let wholeDays = false;
-let activities = false;
+var kitActivities = false;
+var wholeDays = false;
+var activities = false;
 
 function render(err, mood, kit) {
   if (err) {
@@ -124,10 +124,10 @@ function render(err, mood, kit) {
     // They have to be coerced to Number objects to compare them.
     // The native getTime() function returns the number of ms since 1 jan 1970,
     // making Date objects comparable by essentially turning them into Numbers.
-    const kitDate = new Date(kitObj.datum).getTime();
+    var kitDate = new Date(kitObj.datum).getTime();
 
     normalizedData.forEach((normObj, i, arr) => {
-      const normDate = normObj.date.getTime();
+      var normDate = normObj.date.getTime();
 
       if (kitDate === normDate) {
         arr[i].activities.push({
@@ -191,7 +191,7 @@ function createDrawingAreas() {
 
 function createBrush() {
   // Create a brush
-  const brush = d3.brushX()
+  var brush = d3.brushX()
     .extent([[0, 0], [w / 2, (h / 10) - margin.top]])
     .on('brush', brushed);
 
@@ -253,7 +253,7 @@ function drawAxis() {
 }
 
 function brushed() {
-  const selection = d3.event.selection;
+  var selection = d3.event.selection;
   x.domain(selection.map(xBrush.invert, xBrush));
 
   // Draw new groups into the drawing area
@@ -338,7 +338,7 @@ function activitiesRender() {
   dataDrawingArea.select('.noon').transition().duration(250).remove();
 
   // Put activities into an array for creating an axis
-  const activitiesFiltered = [];
+  var activitiesFiltered = [];
   normalizedData.forEach(obj => {
     obj.activities.forEach(act => {
       if (activitiesFiltered.indexOf(act.activity) === -1) {
@@ -347,11 +347,11 @@ function activitiesRender() {
     });
   });
 
-  const range = activitiesFiltered.map((val, index) => {
+  var range = activitiesFiltered.map((val, index) => {
     return parseInt(index * ((h / 1.5) / activitiesFiltered.length), 10);
   });
 
-  const brushRange = activitiesFiltered.map((val, index) => {
+  var brushRange = activitiesFiltered.map((val, index) => {
     return parseInt(index * (((h / 10) - margin.top) / activitiesFiltered.length), 10);
   });
 
